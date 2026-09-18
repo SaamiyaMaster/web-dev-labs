@@ -1,4 +1,4 @@
-<!-- Saamiya Master — Lab 2 -->
+<!-- Saamiya Master — Lab 4 -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,9 +8,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
     <h1>Hello, Web!</h1>
     <p>This is my first HTML page for this course.</p>
-    <p>Using this to test my new branch.</p>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <main>
     <h2>About This Page</h2>
     <ul>
         <li>Creation of a Proper Website.</li>
@@ -19,5 +28,47 @@
     </ul>
     <a href="https://www.mayoclinic.org/diseases-conditions/pcos/symptoms-causes/syc-20353439">An overview of the hormonal condition known as PMOS.</a>
     <img src="mango.jpg" alt="A picture of Kesar Mango">
+
+    <table>
+        <caption>My Course Schedule</caption>
+        <thead>
+            <tr>
+                <th>Week</th>
+                <th>Course Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>ITM Auditing</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="msg">Message</label>
+        <textarea id="msg" name="msg"></textarea>
+
+        <label for="referral">How did you find this page?</label>
+        <select id="referral" name="referral">
+            <option value="search">Search Engine</option>
+            <option value="social">Social Media</option>
+            <option value="friend">Friend told me</option>
+        </select>
+
+        <button type="submit">Send</button>
+
+    </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Saamiya Master</p>
+    </footer>
 </body>
 </html>
