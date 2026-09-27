@@ -1,4 +1,4 @@
-<!-- Saamiya Master — Lab 4 -->
+<!-- Saamiya Master — Lab 5 -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@
     <p>This is my first HTML page for this course.</p>
     </header>
 
-    <nav>
+    <nav id="main-nav">
         <a href="#">Home</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
@@ -72,6 +72,9 @@
 
         <label for="msg">Message</label>
         <textarea id="msg" name="msg"></textarea>
+
+        <label for="zip">Zip Code</label>
+        <input type="text" id="zip" name="zip" pattern="^\d{5}$" required>
 
         <label for="referral">How did you find this page?</label>
         <select id="referral" name="referral">
