@@ -86,7 +86,8 @@ input, textarea, select {
     z-index: 5;
 }
 
-@media (max-width: 600px) {
+#main-nav {display: flex; flex-direction: column;}
+@media (min-width: 600px) {
   #main-nav {
     flex-direction: column;
   }
@@ -96,12 +97,3 @@ input, textarea, select {
   }
 }
 
-@media (max-width: 900px) {
-  #main-nav {
-    flex-direction: column;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
-}
