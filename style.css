@@ -86,7 +86,7 @@ input, textarea, select {
     z-index: 5;
 }
 
-#main-nav {display: flex; flex-direction: column;}
+nav {display: flex; flex-direction: column;}
 @media (min-width: 600px) {
   #main-nav {
     flex-direction: column;
