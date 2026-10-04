@@ -40,6 +40,7 @@ header h1 {
     color: white;
     text-decoration: none;
     padding: 12px;
+    transition: background-color 0.2s ease;
 }
 
 #main-nav a:hover {
