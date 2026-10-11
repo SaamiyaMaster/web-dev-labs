@@ -1,3 +1,3 @@
-const zipPattern = /^d{5}$/;
-const isValidZip = zipPattern.test(zipInput.value);
-console.log(isValidZip);
+// Saamiya Master - Lab 7
+
+console.log("script.js is connected");
