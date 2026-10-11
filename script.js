@@ -17,3 +17,8 @@ likeBtn.addEventListener("click", function() {
   likeCount.textContent = `${likes} likes`;
 });
 
+const themeBtn = document.querySelector("#theme-btn");
+
+themeBtn.addEventListener("click", function() {
+  document.body.classList.toggle("dark");
+});
