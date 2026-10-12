@@ -7,7 +7,7 @@ let isEnrolled = false;
 labsCompleted = labsCompleted +1;
 console.log(`${name} has completed ${labsCompleted} labs.`);
 
-const likeBtn = document.querySelector("#like-Btn");
+const likeBtn = document.querySelector("#like-btn");
 const likeCount = document.querySelector("#like-count");
 let likes = 0;
 
