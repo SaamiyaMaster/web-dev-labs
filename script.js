@@ -1,29 +1,49 @@
-// Saamiya Master - Lab 8
-
 const name = "Ada";
-let labsCompleted =6;
+let labsCompleted = 6;
 let isEnrolled = false;
 
-labsCompleted = labsCompleted +1;
+labsCompleted = labsCompleted + 1;
 console.log(`${name} has completed ${labsCompleted} labs.`);
 
 const likeBtn = document.querySelector("#like-btn");
 const likeCount = document.querySelector("#like-count");
-const LikeCounter = {
-  likes: 0,
-  increment() {
-    this.likes = this.likes + 1;
-    this.render();
-  },
-  render() {
-    likeCount.textContent = `${this.likes} likes`;
+const likeMessage = document.querySelector("#like-message");
+
+function createLikeCounter() {
+  let likes = 0; // private — not reachable from outside
+
+  function updateLikeDisplay(currentLikes) {
+    likeCount.textContent = `${currentLikes} likes`;
+
+    if (currentLikes >= 10) {
+      likeMessage.textContent = "Wow, thanks for all the likes!";
+    } else if (currentLikes >= 5) {
+      likeMessage.textContent = "Glad you like it!";
+    } else {
+      likeMessage.textContent = "";
+    }
   }
-};
 
-likeBtn.addEventListener("click", function() {
-  LikeCounter.increment();
-});
+  return {
+    increment() {
+      likes++;
+      updateLikeDisplay(likes);
+    },
+    getLikes() {
+      return likes;
+    }
+  };
+}
 
+const counter = createLikeCounter();
+
+if (likeBtn) {
+  likeBtn.addEventListener("click", function() {
+    counter.increment();
+  });
+} else {
+  console.warn("like-btn not found on this page");
+}
 
 const themeBtn = document.querySelector("#theme-btn");
 
@@ -39,24 +59,3 @@ goals.forEach(function(goal) {
   item.textContent = goal;
   goalsList.appendChild(item);
 });
-
-const likeMessage = document.querySelector("#like-message");
-
-function updateLikeDisplay() {
-  likeCount.textContent = `${likes} likes`;
-
-  if (likes >= 10) {
-    likeMessage.textContent = "Wow, thanks for all the likes!";
-  } else if (likes >= 5) {
-    likeMessage.textContent = "Glad you like it!";
-  } else {
-    likeMessage.textContent = "";
-  }
-}
-
-if (likeBtn) {
-  likeBtn.addEventListener("click", LikeCounter);
-} else {
-  console.warn("like-btn not found on this page");
-}
-
