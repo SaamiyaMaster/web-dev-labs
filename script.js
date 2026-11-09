@@ -1,4 +1,8 @@
-// Saamiya Master — Lab 9
+// Saamiya Master — Lab 10
+
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+}
 
 const name = "Ada";
 let labsCompleted = 6;
@@ -12,7 +16,9 @@ const likeCount = document.querySelector("#like-count");
 const likeMessage = document.querySelector("#like-message");
 
 function createLikeCounter() {
-  let likes = 0; // private — not reachable from outside
+  let likes = (typeof localStorage !== "undefined" && localStorage.getItem("likes"))
+    ? Number(localStorage.getItem("likes"))
+    : 0;
 
   function updateLikeDisplay(currentLikes) {
     likeCount.textContent = `${currentLikes} likes`;
@@ -29,6 +35,9 @@ function createLikeCounter() {
   return {
     increment() {
       likes++;
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("likes", likes);
+      }
       updateLikeDisplay(likes);
     },
     getLikes() {
@@ -47,10 +56,13 @@ if (likeBtn) {
   console.warn("like-btn not found on this page");
 }
 
+
 const themeBtn = document.querySelector("#theme-btn");
 
 themeBtn.addEventListener("click", function() {
   document.body.classList.toggle("dark");
+  const isDark = document.body.classList.contains("dark");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
 });
 
 const goals = ["HTML", "CSS", "JavaScript", "Git"];
@@ -100,3 +112,25 @@ async function loadFact() {
 }
 
 factBtn.addEventListener("click", loadFact);
+
+const locationBtn = document.querySelector("#location-btn");
+const locationDisplay = document.querySelector("#location-display");
+
+locationBtn.addEventListener("click", function() {
+  if (!("geolocation" in navigator)) {
+    locationDisplay.textContent =
+      "Geolocation isn't supported.";
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(function(position) {
+    const lat = position.coords.latitude.toFixed(2);
+    const lon = position.coords.longitude.toFixed(2);
+    locationDisplay.textContent = `You're near ${lat}, ${lon}`;
+  }, function(error) {
+    locationDisplay.textContent =
+      "Location access was denied.";
+    console.warn(error);
+  });
+});
+
